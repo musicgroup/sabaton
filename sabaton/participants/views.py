@@ -1,9 +1,11 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .models import Musician
 
 
 def participants(request):
-    return HttpResponse('Здесь представлены все музыканты: ')
+    posts = Musician.objects.all()
+    return render(request, 'participants/list_of_part.html', {'posts': posts, 'title': 'Текущие участники группы'})
 
 
 # Create your views here.
