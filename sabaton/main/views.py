@@ -25,3 +25,23 @@ def musician(request, pk):
         return HttpResponseNotFound('<h1>Такого участника в группе нет ):</h1>')
     mus = Musician.objects.filter(pk=pk)
     return render(request, 'participants/musician.html', {'mus': mus[0]})
+
+
+def albums(request):
+    return HttpResponse('<h1>Страница с альбомами</h1>')
+
+
+def album(request, pk):
+    return HttpResponse(f'<h1>Альбом: {pk}</h1>')
+
+
+def tracks(request):
+    return HttpResponse('<h1>Страница с трэками</h1>')
+
+
+def track(request, pk):
+    return HttpResponse(f'<h1>Трэк: {pk}</h1>')
+
+
+def gallery(request):
+    return HttpResponse('<h1>Фотографии</h1>')
