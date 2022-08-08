@@ -12,4 +12,23 @@ class Musician(models.Model):
     def __str__(self):
         return self.name
 
+
+class Photo(models.Model):
+    height = models.IntegerField()
+    width = models.IntegerField()
+    photo_id = models.IntegerField()
+    time_create = models.DateTimeField(auto_now_add=True)
+    time_update = models.DateTimeField(auto_now=True)
+    is_published = models.BooleanField(default=True)
+
+
+class Track(models.Model):
+    length = models.IntegerField()
+    time_create = models.DateTimeField(auto_now_add=True)
+    time_update = models.DateTimeField(auto_now=True)
+    is_published = models.BooleanField(default=True)
+
+
+class Album(models.Model):
+    pass
 # Create your models here.
