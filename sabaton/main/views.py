@@ -1,47 +1,43 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseNotFound
 from .models import Musician
-menu = ['Основная информация', 'Участники группы', 'Альбомы', 'Треки', 'Галерея', 'Разработчики сайта']
+
+menu = [{'title': 'Основная информация',
+         'url_name': "about"},
+        {'title': 'Участники группы',
+         'url_name': "participants"},
+        {'title': 'Альбомы',
+         'url_name': "albums"},
+        {'title': 'Треки',
+         'url_name': "songs"},
+        {'title': 'Галерея',
+         'url_name': "gallery"},
+        {'title': 'Разработчики сайта',
+         'url_name': "developers"}
+        ]
 
 
 def main_page(request):
-
     # print(posts)
     # return HttpResponse('Главная страница приложения main')
     return render(request, 'main\index.html', {'menu': menu, 'title': 'Главная страница'})
 
 
 def about(request):
-    return render(request, 'main\\about.html', {'title': 'О сайте', 'header': 'Страница about'})
-
+    return render(request, 'main\\about.html', {'menu': menu, 'title': 'О сайте', 'header': 'Страница about'})
 
 def participants(request):
-    posts = Musician.objects.all()
-    return render(request, 'participants/list_of_part.html', {'posts': posts, 'title': 'Текущие участники группы'})
-
-
-def musician(request, pk):
-    if pk >= len(Musician.objects.all()):
-        return HttpResponseNotFound('<h1>Такого участника в группе нет ):</h1>')
-    mus = Musician.objects.filter(pk=pk)
-    return render(request, 'participants/musician.html', {'mus': mus[0]})
-
+    return render(request, 'main\\temp.html', {'menu': menu, 'title': 'Участники', 'header': 'Страница participants'})
 
 def albums(request):
-    return HttpResponse('<h1>Страница с альбомами</h1>')
+    return render(request, 'main\\temp.html', {'menu': menu, 'title': 'Альбомы', 'header': 'Страница albums'})
 
-
-def album(request, pk):
-    return HttpResponse(f'<h1>Альбом: {pk}</h1>')
-
-
-def tracks(request):
-    return HttpResponse('<h1>Страница с трэками</h1>')
-
-
-def track(request, pk):
-    return HttpResponse(f'<h1>Трэк: {pk}</h1>')
-
+def songs(request):
+    return render(request, 'main\\temp.html', {'menu': menu, 'title': 'Треки', 'header': 'Страница songs'})
 
 def gallery(request):
-    return HttpResponse('<h1>Фотографии</h1>')
+    return render(request, 'main\\temp.html', {'menu': menu, 'title': 'Галерея', 'header': 'Страница gallery'})
+
+def developers(request):
+    return render(request, 'main\\temp.html', {'menu': menu, 'title': 'Разработчики', 'header': 'Страница developers'})
+
