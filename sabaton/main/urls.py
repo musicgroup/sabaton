@@ -1,15 +1,15 @@
 from django.urls import path
-from . import views
+from views import main_page, about, participants, albums, songs, gallery, developers
 
 urlpatterns = [
-    path('', views.main_page, name='main_page'),
-    path('about/', views.about, name='about'),
-    path('participants/', views.participants, name='participants'),
-    #path('participants/<int:pk>/', views.musician, name='musician'),
-    path('albums/', views.albums, name='albums'),
-    #path('albums/<int:pk>/', views.album, name='album'),
-    path('tracks/', views.tracks, name='tracks'),
-    #path('tracks/<int:pk>', views.track, name='track'),
-    path('photos/', views.gallery, name='gallery'),
+    path('', main_page, name='main_page'),
+    path('about/', about, name='about'),
+    path('participants/', participants, name='participants'),
+    # path('participants/<int:pk>/', musician, name='musician'),
+    path('albums/', albums, name='albums'),
+    # path('albums/<int:pk>/', album, name='album'),
+    path('tracks/', songs, name='songs'),
+    # path('tracks/<int:pk>', track, name='track'),
+    path('gallery/', gallery, name='gallery'),
     path('developers/', developers, name='developers'),
 ]
