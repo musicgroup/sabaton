@@ -1,3 +1,5 @@
+import datetime
+
 from django.db import models
 
 
@@ -30,5 +32,8 @@ class Track(models.Model):
 
 
 class Album(models.Model):
-    pass
+    title = models.CharField(max_length=50, default="album")
+    tracks = models.IntegerField(default=0)
+    release_date = models.DateField(default=datetime.date.today())
+    photo = models.ImageField(upload_to="photos/albums", default=0)
 # Create your models here.

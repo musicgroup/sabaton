@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseNotFound
-from .models import Musician
+from .models import Musician, Album
 
 menu = [{'title': 'Основная информация',
          'url_name': "about"},
@@ -30,7 +30,8 @@ def participants(request):
     return render(request, 'main\\temp.html', {'menu': menu, 'title': 'Участники', 'header': 'Страница participants'})
 
 def albums(request):
-    return render(request, 'main\\temp.html', {'menu': menu, 'title': 'Альбомы', 'header': 'Страница albums'})
+    albums = Album.objects.all().order_by("release_date")
+    return render(request, 'main\\albums.html', {'menu': menu, 'title': 'Альбомы', 'header': 'Страница albums', 'albums': albums})
 
 def songs(request):
     return render(request, 'main\\temp.html', {'menu': menu, 'title': 'Треки', 'header': 'Страница songs'})
