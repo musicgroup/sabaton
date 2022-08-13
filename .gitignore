@@ -3,3 +3,5 @@ migrations/
 .idea/
 __pycache__/
 db.sqlite3
+media/photos
+media/songs
