@@ -1,0 +1,18 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+    <div class="album_info">
+        <p><img src="{{ album.photo.url }}" alt="Фото альбома удалено" width="300"></p>
+    </div>
+
+    {% for track in tracks %}
+        <div class="track">
+            <p class="track_title">{{ track.title }}</p>
+            <p>
+                <audio controls="controls">
+                    <source src="{{ track.audio_track.url }}" type="audio/mpeg"/>
+                </audio>
+            </p>
+        </div>
+    {% endfor %}
+{% endblock %}

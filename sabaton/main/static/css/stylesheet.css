@@ -80,5 +80,16 @@
   margin-top: 0;
 }
 
+.album_info{
+  padding-top: 30px;
+  padding-left: 30px;
+  width: 100%;
+}
+
+.track{
+  background-color: black;
+  color: white;
+}
+
 body {background-color: black}
 
