@@ -5,14 +5,31 @@
         <p><img src="{{ album.photo.url }}" alt="Фото альбома удалено" width="300"></p>
     </div>
 
-    {% for track in tracks %}
+    <!--{% for track in tracks %}
         <div class="track">
             <p class="track_title">{{ track.title }}</p>
             <p>
-                <audio controls="controls">
-                    <source src="{{ track.audio_track.url }}" type="audio/mpeg"/>
+                <audio controls="controls" src="{{ track.audio_track.url }}">
                 </audio>
             </p>
         </div>
+    {% endfor %} -->
+    {% for track in tracks %}
+    <audio id="player" src="{{ track.audio_track.url }}"></audio>
+    <div class="player">
+      <div class="control">
+        <i class="fas fa-play" id="playbtn"></i>
+      </div>
+      <div class="info">
+          {{track.title}}
+
+      </div>
+      <div id="current">0:00</div>
+<div class="bar1"></div>
+        <div class="bar">
+          <div id="progress"></div>
+        </div>
+    </div>
     {% endfor %}
+    <script src="../../static/js/scripts.js"></script>
 {% endblock %}

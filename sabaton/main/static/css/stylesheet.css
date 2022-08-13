@@ -57,6 +57,91 @@
 @media (max-width: 600px) {
 .menu-main li {display: block;}
 }
+
+
+
+.player {
+    margin-left: 20px;
+    width: 640px;
+    background-color: grey;
+    display: grid;
+    grid-template-columns: 48px 1fr 48px;
+    grid-gap: 16px;
+    padding: 8px 24px;
+    position: relative;
+    /*border-radius: 64px;*/
+}
+
+.control,#current {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-block: 16px;
+}
+
+#playbtn {
+    font-size: 24px;
+    color: transparent;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: white;
+    cursor: pointer;
+    position: absolute;
+    z-index: 4;
+}
+
+#playbtn:hover {
+    -webkit-text-fill-color: white;
+}
+
+.info {
+    z-index: 3;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 21px;
+}
+
+#current {
+    text-align: right;
+    z-index: 3;
+    position: relative;
+}
+
+.bar1 {
+    --space: -2px;
+    left: var(--space);
+    right: var(--space);
+    top: var(--space);
+    bottom: var(--space);
+    background-color: grey;
+    position: absolute;
+    /*border-radius: 64px;*/
+    z-index: 2;
+}
+
+.bar {
+    --space: -4px;
+    background-color: #24242424;
+    overflow: hidden;
+    left: var(--space);
+    right: var(--space);
+    top: var(--space);
+    bottom: var(--space);
+    position: absolute;
+    /*border-radius: 64px;*/
+    z-index: 1;
+}
+
+#progress {
+    display: block;
+    width: var(--progress,0%);
+    background-color: white;
+    transition: all 1s linear;
+    height: 100%;
+}
+
 .background{
   background-image: url(../img/background.jpg);
   background-repeat: no-repeat;
@@ -92,4 +177,8 @@
 }
 
 body {background-color: black}
+
+audio {
+  outline: none;
+}
 
