@@ -1,6 +1,5 @@
 from django.conf.urls.static import static
 from django.urls import path
-
 from sabaton import settings
 from .views import main_page, about, participants, albums, songs, gallery, developers
 

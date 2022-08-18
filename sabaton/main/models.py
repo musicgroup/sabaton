@@ -4,6 +4,11 @@ from django.db import models
 
 
 class Musician(models.Model):
+
+    class Meta:
+        verbose_name = "Музыкант"
+        verbose_name_plural = "Музыканты"
+
     name = models.CharField(max_length=20)
     role = models.CharField(max_length=20)
     content = models.TextField(blank=True)
@@ -16,6 +21,11 @@ class Musician(models.Model):
 
 
 class Photo(models.Model):
+
+    class Meta:
+        verbose_name = "Фотография"
+        verbose_name_plural = "Фотографии"
+
     height = models.IntegerField()
     width = models.IntegerField()
     photo_id = models.IntegerField()
@@ -25,6 +35,11 @@ class Photo(models.Model):
 
 
 class Track(models.Model):
+
+    class Meta:
+        verbose_name = "Трек"
+        verbose_name_plural = "Треки"
+
     length = models.IntegerField()
     time_create = models.DateTimeField(auto_now_add=True)
     time_update = models.DateTimeField(auto_now=True)
@@ -32,6 +47,11 @@ class Track(models.Model):
 
 
 class Album(models.Model):
+
+    class Meta:
+        verbose_name = "Альбом"
+        verbose_name_plural = "Альбомы"
+
     title = models.CharField(max_length=50, default="album")
     tracks = models.IntegerField(default=0)
     release_date = models.DateField(default=datetime.date.today())
