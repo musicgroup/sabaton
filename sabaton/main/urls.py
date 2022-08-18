@@ -1,4 +1,6 @@
+from django.conf.urls.static import static
 from django.urls import path
+from sabaton import settings
 from .views import main_page, about, participants, albums, songs, gallery, developers
 
 urlpatterns = [
@@ -12,4 +14,4 @@ urlpatterns = [
     # path('tracks/<int:pk>', track, name='track'),
     path('gallery/', gallery, name='gallery'),
     path('developers/', developers, name='developers'),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
