@@ -4,7 +4,7 @@ from django.db import models
 
 
 class Musician(models.Model):
-
+    """Class, which is representing member of music band"""
     class Meta:
         verbose_name = "Музыкант"
         verbose_name_plural = "Музыканты"
@@ -21,6 +21,7 @@ class Musician(models.Model):
 
 
 class Photo(models.Model):
+    """Class, which is representing one photo from Gallery chapter on a site"""
 
     class Meta:
         verbose_name = "Фотография"
@@ -35,10 +36,10 @@ class Photo(models.Model):
 
 
 class Track(models.Model):
-
+    """Class, representing one Song - part of Album"""
     class Meta:
-        verbose_name = "Трек"
-        verbose_name_plural = "Треки"
+        verbose_name = "Трэк"
+        verbose_name_plural = "Трэки"
 
     length = models.IntegerField()
     time_create = models.DateTimeField(auto_now_add=True)
@@ -47,6 +48,7 @@ class Track(models.Model):
 
 
 class Album(models.Model):
+    """Class, representing one album from Album's page on a site"""
 
     class Meta:
         verbose_name = "Альбом"
@@ -56,4 +58,3 @@ class Album(models.Model):
     tracks = models.IntegerField(default=0)
     release_date = models.DateField(default=datetime.date.today())
     photo = models.ImageField(upload_to="photos/albums", default=0)
-# Create your models here.

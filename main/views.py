@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseNotFound
 from .models import Musician, Album
 
+# menu, which will be presented of the main page of site
+
 menu = [{'title': 'Основная информация',
          'url_name': "about"},
         {'title': 'Участники группы',
@@ -26,19 +28,25 @@ def main_page(request):
 def about(request):
     return render(request, 'main\\about.html', {'menu': menu, 'title': 'О сайте', 'header': 'Страница about'})
 
+
 def participants(request):
     return render(request, 'main\\temp.html', {'menu': menu, 'title': 'Участники', 'header': 'Страница participants'})
 
+
 def albums(request):
     albums = Album.objects.all().order_by("release_date")
-    return render(request, 'main\\albums.html', {'menu': menu, 'title': 'Альбомы', 'header': 'Страница albums', 'albums': albums})
+    return render(request, 'main\\albums.html',
+                  {'menu': menu, 'title': 'Альбомы', 'header': 'Страница albums', 'albums': albums})
+
 
 def songs(request):
-    return render(request, 'main\\temp.html', {'menu': menu, 'title': 'Треки', 'header': 'Страница songs'})
+    return render(request, 'main\\temp.html', {'menu': menu, 'title': 'Трэки', 'header': 'Страница songs'})
+
 
 def gallery(request):
     return render(request, 'main\\temp.html', {'menu': menu, 'title': 'Галерея', 'header': 'Страница gallery'})
 
+
+# information about site developers
 def developers(request):
     return render(request, 'main\\temp.html', {'menu': menu, 'title': 'Разработчики', 'header': 'Страница developers'})
-
