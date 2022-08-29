@@ -12,4 +12,8 @@ C:\...\> pip install -r requirments.txt
 ```
 И сам запуск:
 
-```C:\...\> python manage.py runserver```
+```
+
+C:\...\> python manage.py runserver
+
+```
