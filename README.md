@@ -6,7 +6,8 @@
 ## Запуск проекта
 
 Для запуска проекта с тестовым сервером на http://localhost:8000 необходимо выполнить следующий набор команд (в примере командная строка Windows 10):
-```C:\...\> git clone https://github.com/musicgroup/sabaton
+```
+C:\...\> git clone https://github.com/musicgroup/sabaton
 C:\...\> cd sabaton
 C:\...\> python -m venv venv
 C:\...\> venv\Scripts\activate
