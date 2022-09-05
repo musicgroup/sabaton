@@ -1,0 +1,8 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+    <div class="album_info">
+        <p><img src="{{ participant.photo.url }}" alt="Фото альбома удалено" width="300"></p>
+    <p>{{ participant.content }}</p>
+    </div>
+{% endblock %}

@@ -159,7 +159,22 @@
   color: white;
 }
 
+.participant{
+  float: left;
+    margin: 50px;
+  background-color: grey;
+  width: 300px;
+  height: 400px;
+  color: white;
+}
+
 .album p{
+  padding-left: 10px;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.participant p{
   padding-left: 10px;
   margin-bottom: 0;
   margin-top: 0;
@@ -169,6 +184,12 @@
   padding-top: 30px;
   padding-left: 30px;
   width: 100%;
+}
+
+.album_info p{
+    float: left;
+    color: white;
+    background-color: black;
 }
 
 .track{

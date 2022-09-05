@@ -2,13 +2,13 @@ from django.conf.urls.static import static
 from django.urls import path
 
 from sabaton import settings
-from .views import main_page, about, participants, albums, songs, gallery, developers, album
+from .views import main_page, about, participants, albums, songs, gallery, developers, album, participant
 
 urlpatterns = [
     path('', main_page, name='main_page'),
     path('about/', about, name='about'),
     path('participants/', participants, name='participants'),
-    # path('participants/<int:pk>/', musician, name='musician'),
+    path('participants/<int:pk>/', participant, name='participant'),
     path('albums/', albums, name='albums'),
     path('albums/<int:pk>/', album, name='album'),
     path('tracks/', songs, name='songs'),
