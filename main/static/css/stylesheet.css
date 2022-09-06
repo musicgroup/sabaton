@@ -153,7 +153,7 @@
 .album{
   float: left;
     margin: 50px;
-  background-color: grey;
+  background-color: rgba(120,120,120,0.8);
   width: 300px;
   height: 380px;
   color: white;
@@ -162,7 +162,7 @@
 .participant{
   float: left;
     margin: 50px;
-  background-color: grey;
+  background-color: rgba(120,120,120,0.8);
   width: 300px;
   height: 400px;
   color: white;
@@ -189,7 +189,7 @@
 .album_info p{
     float: left;
     color: white;
-    background-color: black;
+    background-color: rgba(0,0,0,0.5);
 }
 
 .track{

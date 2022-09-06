@@ -5,6 +5,7 @@ from django.db import models
 
 class Participant(models.Model):
     name = models.CharField(max_length=20)
+    birthday = models.DateField()
     role = models.CharField(max_length=20)
     content = models.TextField(blank=True)
     photo = models.ImageField(upload_to="photos/participants")

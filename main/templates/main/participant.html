@@ -2,7 +2,11 @@
 
 {% block content %}
     <div class="album_info">
-        <p><img src="{{ participant.photo.url }}" alt="Фото альбома удалено" width="300"></p>
-    <p>{{ participant.content }}</p>
+        <p>Имя: {{ participant.name }}</p>
+        <br>
+        <br>
+        <p>Дата рождения: {{ participant.birthday.day }}.{{ participant.birthday.month }}.{{ participant.birthday.year }}</p>
+        <br>
+        <p><img style="margin-right: 20px" src="{{ participant.photo.url }}" alt="Фото альбома удалено" width="300" align="left">{{ participant.content }}</p>
     </div>
 {% endblock %}
