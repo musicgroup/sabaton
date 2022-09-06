@@ -10,6 +10,13 @@ class Participant(models.Model):
     content = models.TextField(blank=True)
     photo = models.ImageField(upload_to="photos/participants")
 
+    class Meta:
+        verbose_name = "Участник"
+        verbose_name_plural = "Участники"
+
+    def __str__(self):
+        return self.name
+
 
 class Photo(models.Model):
     height = models.IntegerField()
@@ -23,10 +30,18 @@ class Album(models.Model):
     release_date = models.DateField(default=datetime.date.today())
     photo = models.ImageField(upload_to="photos/albums")
 
+    class Meta:
+        verbose_name = "Альбом"
+        verbose_name_plural = "Альбомы"
+
+    def __str__(self):
+        return self.title
+
 
 class Track(models.Model):
     title = models.CharField(max_length=50)
     length = models.IntegerField()
     album = models.ForeignKey('Album', on_delete=models.PROTECT)
     audio_track = models.FileField(upload_to="songs/")
+
 # Create your models here.
