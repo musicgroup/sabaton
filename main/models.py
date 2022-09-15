@@ -44,4 +44,8 @@ class Track(models.Model):
     album = models.ForeignKey('Album', on_delete=models.PROTECT)
     audio_track = models.FileField(upload_to="songs/")
 
+    class Meta:
+        verbose_name = "Трек"
+        verbose_name_plural = "Треки"
+
 # Create your models here.
