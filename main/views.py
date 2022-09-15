@@ -8,6 +8,8 @@ menu = [{'title': 'Участники группы',
          'url_name': "albums"},
         {'title': 'Галерея',
          'url_name': "gallery"},
+        {'title': 'О группе',
+         'url_name': 'about'}
         ]
 
 
@@ -18,7 +20,7 @@ def main_page(request):
 
 
 def participants(request):
-    all_participants = Participant.objects.all()
+    all_participants = Participant.objects.all().exclude(name='Sabaton')
     return render(request, 'main\\participants.html',
                   {'menu': menu, 'title': 'Участники', 'header': 'Страница participants',
                    'participants': all_participants})
@@ -44,6 +46,12 @@ def album(request, pk):
                   {'menu': menu, 'title': current_album.title, 'header': 'Страница albums', 'tracks': tracks,
                    'album': current_album})
 
+
+def about(request):
+    band_info = Participant.objects.filter(name='Sabaton').first()
+    print(band_info.name)
+    return render(request, 'main\\about.html',
+                  {'menu': menu, 'title': "О группе", 'header': "О группе", 'band': band_info})
 
 def gallery(request):
     return render(request, 'main\\temp.html', {'menu': menu, 'title': 'Галерея', 'header': 'Страница gallery'})
