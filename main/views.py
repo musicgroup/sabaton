@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseNotFound
-from .models import Participant, Album, Track
+from .models import Participant, Album, Track, Photo
 
 menu = [{'title': 'Участники группы',
          'url_name': "participants"},
@@ -53,5 +53,12 @@ def about(request):
     return render(request, 'main\\about.html',
                   {'menu': menu, 'title': "О группе", 'header': "О группе", 'band': band_info})
 
+
 def gallery(request):
-    return render(request, 'main\\temp.html', {'menu': menu, 'title': 'Галерея', 'header': 'Страница gallery'})
+    photos = Photo.objects.all()
+    return render(request, 'main\\gallery.html', {'menu': menu, 'title': 'Галерея', 'header': 'Страница gallery', 'photos': photos})
+
+
+def photo(request, pk):
+    current_photo = Photo.objects.get(pk=pk)
+    return render(request, 'main\\photo.html', {'menu': menu, 'header': 'Фотография из галереи', 'photo': current_photo})

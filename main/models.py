@@ -21,7 +21,7 @@ class Participant(models.Model):
 class Photo(models.Model):
     height = models.IntegerField()
     width = models.IntegerField()
-    photo_id = models.IntegerField()
+    photo_id = models.ImageField(upload_to="photos/gallery")
 
 
 class Album(models.Model):
