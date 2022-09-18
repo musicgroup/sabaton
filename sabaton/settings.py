@@ -73,9 +73,9 @@ WSGI_APPLICATION = 'sabaton.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'postgres',
+        'NAME': 'sabaton',
         'USER': 'postgres',
-        'PASSWORD': '1811',
+        'PASSWORD': 'Kendol2002',
         'HOST': 'localhost',
         'PORT': '5432'
     }

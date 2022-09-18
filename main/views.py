@@ -22,28 +22,28 @@ def main_page(request):
 def participants(request):
     all_participants = Participant.objects.all().exclude(name='Sabaton')
     return render(request, 'main\\participants.html',
-                  {'menu': menu, 'title': 'Участники', 'header': 'Страница participants',
+                  {'menu': menu, 'title': 'Участники',
                    'participants': all_participants})
 
 
 def participant(request, pk):
     current_participant = Participant.objects.get(pk=pk)
     return render(request, 'main\\participant.html',
-                  {'menu': menu, 'title': 'Участники', 'header': 'Страница participants',
+                  {'menu': menu, 'title': 'Участники',
                    'participant': current_participant})
 
 
 def albums(request):
     all_albums = Album.objects.all().order_by("release_date")
     return render(request, 'main\\albums.html',
-                  {'menu': menu, 'title': 'Альбомы', 'header': 'Страница albums', 'albums': all_albums})
+                  {'menu': menu, 'title': 'Альбомы', 'albums': all_albums})
 
 
 def album(request, pk):
     current_album = Album.objects.get(pk=pk)
     tracks = Track.objects.filter(album_id=pk)
     return render(request, 'main\\album.html',
-                  {'menu': menu, 'title': current_album.title, 'header': 'Страница albums', 'tracks': tracks,
+                  {'menu': menu, 'title': current_album.title, 'tracks': tracks,
                    'album': current_album})
 
 
@@ -51,14 +51,16 @@ def about(request):
     band_info = Participant.objects.filter(name='Sabaton').first()
     print(band_info.name)
     return render(request, 'main\\about.html',
-                  {'menu': menu, 'title': "О группе", 'header': "О группе", 'band': band_info})
+                  {'menu': menu, 'title': "О группе", 'band': band_info})
 
 
 def gallery(request):
     photos = Photo.objects.all()
-    return render(request, 'main\\gallery.html', {'menu': menu, 'title': 'Галерея', 'header': 'Страница gallery', 'photos': photos})
+    return render(request, 'main\\gallery.html', {'menu': menu, 'title': 'Галерея', 'photos': photos})
 
 
 def photo(request, pk):
     current_photo = Photo.objects.get(pk=pk)
-    return render(request, 'main\\photo.html', {'menu': menu, 'header': 'Фотография из галереи', 'photo': current_photo})
+    print(current_photo.photo_name)
+    return render(request, 'main\\photo.html',
+                  {'menu': menu, 'title': current_photo.photo_name, 'photo': current_photo})

@@ -19,9 +19,15 @@ class Participant(models.Model):
 
 
 class Photo(models.Model):
-    height = models.IntegerField()
-    width = models.IntegerField()
+    photo_name = models.CharField(max_length=50, default="Фото")
     photo_id = models.ImageField(upload_to="photos/gallery")
+
+    class Meta:
+        verbose_name = "Фотография"
+        verbose_name_plural = "Фотографии"
+
+    def __str__(self):
+        return self.photo_name
 
 
 class Album(models.Model):
@@ -47,5 +53,8 @@ class Track(models.Model):
     class Meta:
         verbose_name = "Трек"
         verbose_name_plural = "Треки"
+
+    def __str__(self):
+        return self.title
 
 # Create your models here.

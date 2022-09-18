@@ -5,7 +5,7 @@
 
     <div class="gallery">
         {% for photo in photos %}
-            <a rel="gallery" class="photo" href="{url 'photo' photo.pk %}" title="Картинка 1"> <img class="photo"
+            <a rel="gallery" class="photo" href="{% url 'photo' photo.pk %}" title="Картинка 1"> <img class="photo"
                                                                                              src="{{ photo.photo_id.url }}"
                                                                                              alt="" width="300"> </a>
         {% endfor %}
